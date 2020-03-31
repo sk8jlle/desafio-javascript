@@ -8,4 +8,13 @@
       - Se pesquisar: Queijo, queijo ou QuEiJo. O resultado deve ser "Encontrado"
 */
 
-exports.ingredientsFilter = null
+
+
+exports.ingredientsFilter = function(argumento) {
+    const ingredientes = require('./ingredients.js');
+    const encontrou = (ingredientes.filter((ingrediente) => {
+        return (ingrediente.toLowerCase() === argumento.toLowerCase());
+    }).length > 0);
+
+    return encontrou ? 'Encontrado' : 'Não encontrada';
+};
